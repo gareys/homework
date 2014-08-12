@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Homework</title>
+  <title>Garey's TTS Blog | Learning Ruby on Rails</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Garey's Blog</a>
+    </div>
 
-<%= yield %>
-
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/page/array">Lorem</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to current_user.full_name, edit_user_registration_path %></li>
+          <li><%= link_to "Log out", logout_path  %></li>
+        <% else %>
+          <li><%= link_to "Register", register_path %></li>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+      </ul>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+	<% flash.each do |name, msg| %>
+	  <% if msg.is_a?(String) %>
+	    <div id="myAlert" class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %> fade" role="alert">
+	      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+	    </div>
+	  <% end %>
+	<% end %>
+	<%= yield %>
+</div>
 </body>
 </html>

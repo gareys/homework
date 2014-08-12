@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//Creates a funtion to include the "in" class on #myAlert to fade in the alert
+//Add id="myAlert" to html div you wish to fade in
+//See application.css in /assets/stylesheets/application.css
+
+function showAlert(){
+  $("#myAlert").addClass("in")
+}
+window.setTimeout(function () {
+    showAlert();
+}, 500);
