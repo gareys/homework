@@ -24,4 +24,4 @@ function showAlert(){
 }
 window.setTimeout(function () {
     showAlert();
-}, 500);
+}, 250);
