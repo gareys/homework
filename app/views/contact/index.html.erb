@@ -1,0 +1,30 @@
+<div class="page-header">
+	<h1>Contact Me</h1>
+</div>
+<div class="col-md-4">
+	<%= form_tag("/contact/save") do%>
+		<form role="form">
+			<div class="form-group">
+				<%= label_tag(:name, "Name") %>
+				<%= text_field_tag :name, nil, class: "form-control", autofocus: true, placeholder: 'Dr. John Henry Smith, III' %>
+			</div>
+			<div class="form-group">
+				<%= label_tag(:email, "Email") %>
+				<%= text_field_tag :email, nil, class: "form-control", placeholder: 'example@gmail.com' %>
+			</div>
+			<div class="form-group">
+				<%= label_tag(:subject, "Subject") %>
+				<%= text_field_tag :subject, nil, class: "form-control", placeholder: "What's this all about?" %>
+			</div>
+			<div class="form-group">
+				<%= label_tag(:message, "Message") %>
+				<%= text_area_tag :message, nil, class: "form-control", placeholder: 'Tell me more...' %>
+			</div>
+			<div class="form-group">
+				<%= label_tag(:feeling, "How do you feel?") %>
+				<%= select_tag :feeling, options_for_select([["Happy", 1], ["Pretty Good", 2], ["Alright", 3], ["Meh", 4], ["Bad", 5], ["Terrible", 6], ["Shut up, it's Monday", 7]]), class: "form-control"%>
+			</div>
+			<%= submit_tag "Send", class: "btn btn-success" %>
+		</form>
+	<% end %>
+</div>

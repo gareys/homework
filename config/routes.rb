@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :comments
+
+  get 'contact/index'
+  get '/contact' => 'contact#index'
+  get 'contact/thanks' => 'contact#thanks'
+  post 'contact/save' => 'contact#save'
+
   as :user do
     get "/register", to: "devise/registrations#new", as: :register
     get "/login", to: "devise/sessions#new", as: :login
