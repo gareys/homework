@@ -21,21 +21,3 @@ body {
   margin-top: 10px;
 
 }
-
-/*
-To get alerts to work and fade in and out, see .fade and .fade.in classes
-Add fade class to alert message div in html
-See /assets/javascripts/application.js
-*/
-
-.fade {
-  opacity: 0.9;
-  -webkit-transition: opacity 0.3s linear;
-  -moz-transition: opacity 0.3s linear;
-  -o-transition: opacity 0.3s linear;
-  transition: opacity 0.3s linear;
-}
-
-.fade.in {
-  opacity: 0.9;
-}
