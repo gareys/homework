@@ -19,6 +19,10 @@
 //Add id="myAlert" to html div you wish to fade in
 //See application.css in /assets/stylesheets/application.css
 
+function showAlert(){
+  $("#myAlert").addClass("in")
+}
+
 window.setTimeout(function () {
     showAlert();
 }, 250);
